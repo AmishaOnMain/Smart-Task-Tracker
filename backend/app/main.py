@@ -1,13 +1,18 @@
 from fastapi import FastAPI
 
+from app.database.init_db import init_db
+
 app= FastAPI(
 
   title= "AI Productivity Dashboard API",
 
-  description= "Backend API for the AI Productivity Dashboard",
-
   version= "1.0.0",
 )
+
+
+@app.on_event("startup")
+def startup():
+  init_db()
 
 @app.get("/")
 
@@ -15,5 +20,5 @@ def root():
 
   return{
 
-    "message": "Welcome to the AI Productivity Dashboard API"
+    "message": "API is running"
   }
