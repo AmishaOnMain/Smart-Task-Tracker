@@ -1,0 +1,22 @@
+# Virtual Environment
+.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Environment variables
+.env
+
+# SQLite database
+*.db
+
+# Alembic cache
+alembic/versions/__pycache__/
+
+# IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
