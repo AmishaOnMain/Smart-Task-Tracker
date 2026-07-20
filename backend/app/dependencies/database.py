@@ -1,8 +1,10 @@
 from app.database.session import SessionLocal 
 
+from sqlalchemy.orm import Session
+
 def get_db():
 
-  db= SessionLocal()
+  db: Session= SessionLocal()
 
   try:
 

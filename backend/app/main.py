@@ -1,24 +1,17 @@
 from fastapi import FastAPI
 
-from app.database.init_db import init_db
+from app.routes.auth import router as auth_router
 
-app= FastAPI(
-
-  title= "AI Productivity Dashboard API",
-
-  version= "1.0.0",
+app = FastAPI(
+    title="AI Productivity Dashboard API",
+    version="1.0.0",
 )
 
+app.include_router(auth_router)
 
-#@app.on_event("startup")
-#def startup():
-  #init_db()
 
 @app.get("/")
-
 def root():
-
-  return{
-
-    "message": "API is running"
-  }
+    return {
+        "message": "API is running"
+    }
