@@ -5,6 +5,16 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.database.base import Base
 
+from sqlalchemy import Enum 
+import enum
+
+
+class TaskStatus(str,enum.Enum):
+    TODO= "TODO"
+    IN_PROGRESS= "IN_PROGRESS"
+    COMPLETED= "COMPLETED"
+    CANCELLED= "CANCELLED"
+
 
 class Task(Base):
     __tablename__ = "tasks"
@@ -68,13 +78,18 @@ class Task(Base):
 
     user = relationship("User", backref="tasks")
 
-
-    is_routine: Mapped[bool] = mapped_column(
-    Boolean,
-    default=False,
-)
+    status: Mapped[TaskStatus]= mapped_column(
+        Enum(TaskStatus),
+        default= TaskStatus.TODO,
+        nullable= False,
+    )
+   
 
     routine_frequency: Mapped[str | None] = mapped_column(
     String(20),
     nullable=True,
-)
+    )
+    is_routine: Mapped[bool] = mapped_column(
+    Boolean,
+    default=False,
+    )
