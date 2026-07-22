@@ -140,7 +140,6 @@ def get_weekly_chart(
         )
         .all()
     )
-
     chart = defaultdict(int)
 
     for task in tasks:
