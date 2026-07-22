@@ -1,5 +1,13 @@
+import Layout from "../components/layout/Layout";
+
 function Settings() {
-  return <h1>Settings</h1>;
+  return (
+    <Layout>
+      <h1 className="text-3xl font-bold">
+        Settings
+      </h1>
+    </Layout>
+  );
 }
 
 export default Settings;

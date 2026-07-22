@@ -1,5 +1,13 @@
+import Layout from "../components/layout/Layout";
+
 function Dashboard() {
-  return <h1>Dashboard</h1>;
+  return (
+    <Layout>
+      <h1 className="text-3xl font-bold">
+        Dashboard
+      </h1>
+    </Layout>
+  );
 }
 
 export default Dashboard;
