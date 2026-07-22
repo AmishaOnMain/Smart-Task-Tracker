@@ -4,6 +4,8 @@ from app.routes.auth import router as auth_router
 
 from app.routes.tasks import router as task_router
 
+from app.routes.dashboard import router as dashboard_router
+
 app = FastAPI(
     title="AI Productivity Dashboard API",
     version="1.0.0",
@@ -11,6 +13,7 @@ app = FastAPI(
 
 app.include_router(auth_router)
 app.include_router(task_router)
+app.include_router(dashboard_router)
 
 
 @app.get("/")
