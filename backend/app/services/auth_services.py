@@ -11,6 +11,7 @@ class AuthService:
     def google_login(db: Session, id_token: str):
 
         google_user = verify_google_token(id_token)
+        
 
         user = UserRepository.get_by_google_id(
             db,
@@ -31,10 +32,12 @@ class AuthService:
         )
 
         return {
-            "access_token": access_token,
-            "token_type": "bearer",
-            "user_id": user.id,
-            "name": user.name,
-            "email": user.email,
-            "profile_picture": user.profile_picture,
-        }
+    "access_token": access_token,
+    "token_type": "bearer",
+    "user": {
+        "id": user.id,
+        "name": user.name,
+        "email": user.email,
+        "profile_picture": user.profile_picture,
+    },
+}

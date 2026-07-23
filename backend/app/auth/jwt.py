@@ -7,7 +7,7 @@ from app.config.settings import settings
 
 from fastapi import HTTPException, status
 
-def create_access_token(user_id: int):
+def create_access_token(user_id):
   expire = datetime.now(timezone.utc)+ timedelta(
 
     minutes= settings.ACCESS_TOKEN_EXPIRE_MINUTES
